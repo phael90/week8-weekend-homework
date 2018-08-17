@@ -1,6 +1,6 @@
 package models;
 
-public class Director extends FilmArtist{
+public class Director extends FilmArtist {
 
     private int id;
 
@@ -9,4 +9,11 @@ public class Director extends FilmArtist{
 
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

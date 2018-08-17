@@ -1,7 +1,5 @@
 package models;
 
-import java.util.List;
-
 public class Actor extends FilmArtist {
 
     private int id;
@@ -9,5 +7,13 @@ public class Actor extends FilmArtist {
     public Actor(String name, Double cashBalance) {
         super(name, cashBalance);
 
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
