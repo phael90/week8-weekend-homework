@@ -1,9 +1,13 @@
 package models;
 
-
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "films_artists")
 public abstract class FilmArtist {
 
     private String name;
@@ -18,14 +22,17 @@ public abstract class FilmArtist {
         this.awards = new ArrayList<Award>();
     }
 
+    @Column(name = "name")
     public String getName() {
         return name;
     }
+
 
     public void setName(String name) {
         this.name = name;
     }
 
+    @Column(name = "cash_balance")
     public Double getCashBalance() {
         return cashBalance;
     }
@@ -34,6 +41,7 @@ public abstract class FilmArtist {
         this.cashBalance = cashBalance;
     }
 
+    @Column(name = "films")
     public List<Film> getFilms() {
         return films;
     }
@@ -42,6 +50,7 @@ public abstract class FilmArtist {
         this.films = films;
     }
 
+    @Column(name = "awards")
     public List<Award> getAwards() {
         return awards;
     }

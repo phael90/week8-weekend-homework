@@ -1,5 +1,11 @@
 package models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "")
 public class Actor extends FilmArtist {
 
     private int id;
@@ -9,6 +15,7 @@ public class Actor extends FilmArtist {
 
     }
 
+    @Column(name = "id")
     public int getId() {
         return id;
     }
