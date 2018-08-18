@@ -3,7 +3,6 @@ package Enums;
 public enum AwardType {
 
     ACADEMY_AWARDS,
-    Golden_Raspberry_Award,
-
+    GOLDEN_RASPBERRY_AWARD;
 
 }

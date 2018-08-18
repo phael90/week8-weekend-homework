@@ -1,25 +1,37 @@
 package models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.*;
+//import java.util.ArrayList;
+//import java.util.List;
 
 @Entity
-@Table(name = "films_artists")
+@Table(name = "film_artists")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class FilmArtist {
 
+    private int id;
     private String name;
     private Double cashBalance;
-    private List<Film> films;
-    private List<Award> awards;
+//    private List<Award> awards;
+
+    public FilmArtist(){}
 
     public FilmArtist(String name, Double cashBalance) {
         this.name = name;
         this.cashBalance = cashBalance;
-        this.films = new ArrayList<Film>();
-        this.awards = new ArrayList<Award>();
+//        this.awards = new ArrayList<Award>();
+    }
+
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Column(name = "name")
@@ -41,22 +53,14 @@ public abstract class FilmArtist {
         this.cashBalance = cashBalance;
     }
 
-    @Column(name = "films")
-    public List<Film> getFilms() {
-        return films;
-    }
-
-    public void setFilms(List<Film> films) {
-        this.films = films;
-    }
-
-    @Column(name = "awards")
-    public List<Award> getAwards() {
-        return awards;
-    }
-
-    public void setAwards(List<Award> awards) {
-        this.awards = awards;
-    }
+//
+//    @Column(name = "awards")
+//    public List<Award> getAwards() {
+//        return awards;
+//    }
+//
+//    public void setAwards(List<Award> awards) {
+//        this.awards = awards;
+//    }
 }
 

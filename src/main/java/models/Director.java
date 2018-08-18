@@ -1,25 +1,30 @@
 package models;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Entity
-@Table(name = "")
+@Table(name = "directors")
 public class Director extends FilmArtist {
+    private List<Film> films;
 
-    private int id;
-
-    public Director(String name, Double cashBalance){
+    public Director(String name, Double cashBalance) {
         super(name, cashBalance);
-
-    }
-    @Column(name = "id")
-    public int getId() {
-        return id;
+        this.films = new ArrayList<Film>();
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public Director(){}
+
+    @OneToMany(mappedBy = "director", fetch = FetchType.LAZY)
+    public List<Film> getFilms() {
+        return films;
+    }
+
+    public void setFilms(List<Film> films) {
+        this.films = films;
     }
 }
