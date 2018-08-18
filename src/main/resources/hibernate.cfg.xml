@@ -15,10 +15,10 @@
         <mapping class = "models.Film"/>
         <mapping class = "models.Studio"/>
         <mapping class = "models.Actor"/>
-        <mapping class= "models.Director"/>
-        <mapping class= "models.Musician"/>
-        <mapping class="models.FilmArtist"/>
-        <mapping class="models.Award"/>
+        <mapping class = "models.Director"/>
+        <mapping class = "models.Musician"/>
+        <mapping class = "models.FilmArtist"/>
+        <mapping class = "models.Award"/>
 
     </session-factory>
 </hibernate-configuration>

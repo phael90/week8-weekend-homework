@@ -1,8 +1,8 @@
 package models;
 
 import javax.persistence.*;
-//import java.util.ArrayList;
-//import java.util.List;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "film_artists")
@@ -12,16 +12,15 @@ public abstract class FilmArtist {
     private int id;
     private String name;
     private Double cashBalance;
-//    private List<Award> awards;
-
-    public FilmArtist(){}
+    private List<Award> awards;
 
     public FilmArtist(String name, Double cashBalance) {
         this.name = name;
         this.cashBalance = cashBalance;
-//        this.awards = new ArrayList<Award>();
+        this.awards = new ArrayList<Award>();
     }
 
+    public FilmArtist(){}
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -53,14 +52,14 @@ public abstract class FilmArtist {
         this.cashBalance = cashBalance;
     }
 
-//
-//    @Column(name = "awards")
-//    public List<Award> getAwards() {
-//        return awards;
-//    }
-//
-//    public void setAwards(List<Award> awards) {
-//        this.awards = awards;
-//    }
+
+    @OneToMany(mappedBy = "filmArtist", fetch = FetchType.LAZY)
+    public List<Award> getAwards() {
+        return awards;
+    }
+
+    public void setAwards(List<Award> awards) {
+        this.awards = awards;
+    }
 }
 

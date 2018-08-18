@@ -1,8 +1,8 @@
+import Enums.AwardType;
+import Enums.CategoryType;
 import db.DBHelper;
-import models.Actor;
-import models.Director;
-import models.Film;
-import models.Musician;
+import models.*;
+import sun.awt.AWTAccessor;
 
 public class Runner {
 
@@ -20,9 +20,26 @@ public class Runner {
         Actor actor02 = new Actor("Leonardo DiCaprio", 256700543.00);
         DBHelper.save(actor02);
 
-        Film film01 = new Film ("Once Upon a Time in Hollywood", 100000000.00, director01, musician01);
+        Film film01 = new Film("Once Upon a Time in Hollywood", 100000000.00, director01, musician01);
         DBHelper.save(film01);
 
+        Award award01 = new Award(CategoryType.BEST_ACTOR, AwardType.ACADEMY_AWARDS);
+        DBHelper.save(award01);
+
+        Award award02 = new Award(CategoryType.BEST_DIRECTOR, AwardType.ACADEMY_AWARDS);
+        DBHelper.save(award02);
+
+        Award award03 = new Award(CategoryType.BEST_MUSICIAN, AwardType.ACADEMY_AWARDS);
+        DBHelper.save(award03);
+
+        Award award04 = new Award(CategoryType.BEST_ACTOR, AwardType.GOLDEN_RASPBERRY_AWARD);
+        DBHelper.save(award04);
+
+        Award award05 = new Award(CategoryType.BEST_DIRECTOR, AwardType.GOLDEN_RASPBERRY_AWARD);
+        DBHelper.save(award05);
+
+        Award award06 = new Award(CategoryType.BEST_MUSICIAN, AwardType.GOLDEN_RASPBERRY_AWARD);
+        DBHelper.save(award06);
 
     }
 }
