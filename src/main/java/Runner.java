@@ -20,8 +20,9 @@ public class Runner {
         Actor actor02 = new Actor("Leonardo DiCaprio", 256700543.00);
         DBHelper.save(actor02);
 
-        Film film01 = new Film ("Once Upon a Time in Hollywood", 100000000.00, director01);
+        Film film01 = new Film ("Once Upon a Time in Hollywood", 100000000.00, director01, musician01);
         DBHelper.save(film01);
+
 
     }
 }

@@ -10,15 +10,18 @@ public class Film {
     private String title;
     private double budget;
     private Director director;
+    private Musician musician;
     //optional OntToOne filmCrew
 
-    public Film(){}
-
-    public Film(String title, double budget, Director director){
+    public Film(String title, double budget, Director director, Musician musician){
         this.title = title;
         this.budget = budget;
         this.director = director;
+        this.musician = musician;
+
     }
+
+    public Film(){}
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -57,5 +60,15 @@ public class Film {
 
     public void setDirector(Director director) {
         this.director = director;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "musician_id")
+    public Musician getMusician(){
+        return musician;
+    }
+
+    public void setMusician(Musician musician) {
+        this.musician = musician;
     }
 }
