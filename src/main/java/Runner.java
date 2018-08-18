@@ -2,7 +2,6 @@ import Enums.AwardType;
 import Enums.CategoryType;
 import db.DBHelper;
 import models.*;
-import sun.awt.AWTAccessor;
 
 public class Runner {
 
@@ -20,7 +19,7 @@ public class Runner {
         Actor actor02 = new Actor("Leonardo DiCaprio", 256700543.00);
         DBHelper.save(actor02);
 
-        Film film01 = new Film("Once Upon a Time in Hollywood", 100000000.00, director01, musician01);
+        Film film01 = new Film("", 100000000.00, director01, musician01);
         DBHelper.save(film01);
 
         Award award01 = new Award(CategoryType.BEST_ACTOR, AwardType.ACADEMY_AWARDS);
@@ -41,5 +40,11 @@ public class Runner {
         Award award06 = new Award(CategoryType.BEST_MUSICIAN, AwardType.GOLDEN_RASPBERRY_AWARD);
         DBHelper.save(award06);
 
+
+        Casting casting01 = new Casting("Once Upon a Time in Hollywood", actor01, 10000000.00);
+        DBHelper.save(casting01);
+
+        Casting casting02 = new Casting("Once Upon a Time in Hollywood", actor02, 10000000.00);
+        DBHelper.save(casting02);
     }
 }

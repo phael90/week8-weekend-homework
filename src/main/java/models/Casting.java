@@ -1,5 +1,10 @@
 package models;
 
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "castings")
 public class Casting {
 
     private int id;
@@ -7,8 +12,7 @@ public class Casting {
     private Actor actor;
     private Double pay;
 
-    public Casting() {
-    }
+
 
     public Casting(String filmTitle, Actor actor, Double pay) {
         this.filmTitle = filmTitle;
@@ -16,6 +20,12 @@ public class Casting {
         this.pay = pay;
     }
 
+    public Casting() {
+    }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     public int getId() {
         return id;
     }
@@ -24,6 +34,7 @@ public class Casting {
         this.id = id;
     }
 
+    @Column(name = "film_title")
     public String getFilmTitle() {
         return filmTitle;
     }
@@ -32,6 +43,8 @@ public class Casting {
         this.filmTitle = filmTitle;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "actor_id")
     public Actor getActor() {
         return actor;
     }
@@ -40,6 +53,7 @@ public class Casting {
         this.actor = actor;
     }
 
+    @Column(name = "pay")
     public Double getPay() {
         return pay;
     }
