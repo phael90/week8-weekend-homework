@@ -6,6 +6,7 @@ import javax.persistence.*;
 @Table(name = "films")
 public class Film {
 
+    private Studio studio;
     private int id;
     private String title;
     private double budget;
@@ -13,12 +14,12 @@ public class Film {
     private Musician musician;
     //optional OntToOne filmCrew
 
-    public Film(String title, double budget, Director director, Musician musician){
+    public Film(Studio studio, String title, double budget, Director director, Musician musician){
+        this.studio = studio;
         this.title = title;
         this.budget = budget;
         this.director = director;
         this.musician = musician;
-
     }
 
     public Film(){}
@@ -70,5 +71,15 @@ public class Film {
 
     public void setMusician(Musician musician) {
         this.musician = musician;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "studio_id", nullable = false)
+    public Studio getStudio() {
+        return studio;
+    }
+
+    public void setStudio(Studio studio) {
+        this.studio = studio;
     }
 }

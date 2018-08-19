@@ -7,7 +7,9 @@ public class Runner {
 
     public static void main(String[] args) {
 
-        Musician musician01 = new Musician("Ennio Morricone", 2060.00);
+        Studio studio01 = new Studio("Warner Bros", 20000000000.00 );
+
+        Musician musician01 = new Musician("Ennio Morricone", 2063543630.00);
         DBHelper.save(musician01);
 
         Director director01 = new Director("Quentin Tarantino", 35000000000.00);
@@ -19,7 +21,7 @@ public class Runner {
         Actor actor02 = new Actor("Leonardo DiCaprio", 256700543.00);
         DBHelper.save(actor02);
 
-        Film film01 = new Film("", 100000000.00, director01, musician01);
+        Film film01 = new Film(studio01,"Pulp Fiction", 8500000.00, director01, musician01);
         DBHelper.save(film01);
 
         Award award01 = new Award(CategoryType.BEST_ACTOR, AwardType.ACADEMY_AWARDS);
@@ -41,10 +43,10 @@ public class Runner {
         DBHelper.save(award06);
 
 
-        Casting casting01 = new Casting("Once Upon a Time in Hollywood", actor01, 10000000.00);
+        Casting casting01 = new Casting("Once Upon a Time in Hollywood", actor01, 0.00);
         DBHelper.save(casting01);
 
-        Casting casting02 = new Casting("Once Upon a Time in Hollywood", actor02, 10000000.00);
+        Casting casting02 = new Casting("Once Upon a Time in Hollywood", actor02, 0.00);
         DBHelper.save(casting02);
     }
 }
