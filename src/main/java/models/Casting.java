@@ -1,6 +1,5 @@
 package models;
 
-
 import javax.persistence.*;
 
 @Entity
@@ -8,14 +7,14 @@ import javax.persistence.*;
 public class Casting {
 
     private int id;
-    private String filmTitle;
+    private Film film;
     private Actor actor;
     private Double pay;
 
 
 
-    public Casting(String filmTitle, Actor actor, Double pay) {
-        this.filmTitle = filmTitle;
+    public Casting(Film film, Actor actor, Double pay) {
+        this.film = film;
         this.actor = actor;
         this.pay = pay;
     }
@@ -34,17 +33,18 @@ public class Casting {
         this.id = id;
     }
 
-    @Column(name = "film_title")
-    public String getFilmTitle() {
-        return filmTitle;
+    @ManyToOne
+    @JoinColumn(name = "film_id", nullable = false)
+    public Film getFilm() {
+        return film;
     }
 
-    public void setFilmTitle(String filmTitle) {
-        this.filmTitle = filmTitle;
+    public void setFilm(Film film) {
+        this.film = film;
     }
 
     @ManyToOne
-    @JoinColumn(name = "actor_id")
+    @JoinColumn(name = "actor_id", nullable = false)
     public Actor getActor() {
         return actor;
     }

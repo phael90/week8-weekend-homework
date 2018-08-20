@@ -59,4 +59,9 @@ public class Studio {
         this.films = films;
     }
 
+    public void addFilmBudget(Film film, double amount){
+      budget -= amount;
+      film.setBudget(film.getBudget()+amount);
+    }
+
 }

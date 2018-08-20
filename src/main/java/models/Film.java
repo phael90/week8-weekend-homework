@@ -1,6 +1,8 @@
 package models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "films")
@@ -12,7 +14,7 @@ public class Film {
     private double budget;
     private Director director;
     private Musician musician;
-    //optional OntToOne filmCrew
+    private List<Casting> castings;
 
     public Film(Studio studio, String title, double budget, Director director, Musician musician){
         this.studio = studio;
@@ -20,6 +22,7 @@ public class Film {
         this.budget = budget;
         this.director = director;
         this.musician = musician;
+        this.castings = new ArrayList<Casting>();
     }
 
     public Film(){}
@@ -54,7 +57,7 @@ public class Film {
     }
 
     @ManyToOne
-    @JoinColumn(name ="director_id")
+    @JoinColumn(name ="director_id", nullable = false)
     public Director getDirector(){
         return director;
     }
@@ -64,7 +67,7 @@ public class Film {
     }
 
     @ManyToOne
-    @JoinColumn(name = "musician_id")
+    @JoinColumn(name = "musician_id", nullable = false)
     public Musician getMusician(){
         return musician;
     }
@@ -81,5 +84,14 @@ public class Film {
 
     public void setStudio(Studio studio) {
         this.studio = studio;
+    }
+
+    @OneToMany(mappedBy = "film", fetch = FetchType.LAZY)
+    public List<Casting> getCastings() {
+        return castings;
+    }
+
+    public void setCastings(List<Casting> castings) {
+        this.castings = castings;
     }
 }
